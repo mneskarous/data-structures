@@ -6,16 +6,10 @@ var Queue = function() {
   someInstance.count2 = 0;
   someInstance.length = 0;
 
-  extend(someInstance, queueMethods);
+  _.extend(someInstance, queueMethods);
 
   return someInstance;
 };
-
-var extend = function(obj, methods) {
-  for (var key in methods) {
-    obj[key] = methods[key];
-  }
-}
 
 var queueMethods = {
   enqueue: function(value) {
