@@ -1,7 +1,7 @@
 var Queue = function() {
   var someInstance = {};
-  someInstance.storage = {};
 
+  someInstance.storage = {};
   someInstance.count1 = 0;
   someInstance.count2 = 0;
   someInstance.length = 0;
