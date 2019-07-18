@@ -9,8 +9,8 @@ var Queue = function() {
   // Implement the methods below
 
   someInstance.enqueue = function(value) {
-    storage[count1] = value;
     count1++;
+    storage[count1] = value;
   };
 
   someInstance.dequeue = function() {
