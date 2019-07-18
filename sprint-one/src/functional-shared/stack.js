@@ -24,10 +24,14 @@ var stackMethods = {
   pop: function() {
     var popped = this.storage[this.length - 1];
     delete this.storage[this.length - 1];
+    this.length--;
     return popped;
   },
 
   size: function() {
+    if (this.length < 0) {
+      return 0;
+    }
     return this.length;
   }
 }
