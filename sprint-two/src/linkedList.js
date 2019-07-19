@@ -21,30 +21,15 @@ var LinkedList = function() {
     return removed;
   };
 
-  list.contains = function(target) {
-    // for (var node in list) {
-    //   if (target === node.value) {
-    //     return true;
-    //   }
-    //   return false;
-    // }
-
-    // set current node to first node;
-    var currentNode = list.head;
-    // while there is a current node
-      // if target === currentNode.value
-        // return true
-      // else if target !== currentNode.value
-        // set current node to the next current node
-      // in the event that
-    while (currentNode) {
-      if (target === currentNode.value) {
+list.contains = function(target) {
+  var currentNode = list.head;
+  while (currentNode) {
+    if (currentNode.value === target) {
         return true;
-      } else if (target !== currentNode.value) {
-        currentNode = currentNode.next;
-      }
-      return false;
     }
+      currentNode = currentNode.next;
+    }
+    return false;
   };
   return list;
 };
