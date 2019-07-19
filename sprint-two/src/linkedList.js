@@ -6,23 +6,23 @@ var LinkedList = function() {
 
   list.addToTail = function(value) {
     var newNode = new Node(value);
-    if (list.head === null) {
-      list.head = newNode;
-      list.tail = list.head;
+    if (this.head === null) {
+      this.head = newNode;
+      this.tail = this.head;
     } else {
-      list.tail.next = newNode;
-      list.tail = list.tail.next;
+      this.tail.next = newNode;
+      this.tail = this.tail.next;
     }
   };
 
   list.removeHead = function() {
-    var removed = list.head.value;
-    list.head = list.head.next;
+    var removed = this.head.value;
+    this.head = this.head.next;
     return removed;
   };
 
 list.contains = function(target) {
-  var currentNode = list.head;
+  var currentNode = this.head;
   while (currentNode) {
     if (currentNode.value === target) {
         return true;
