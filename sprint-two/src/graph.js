@@ -24,6 +24,13 @@ Graph.prototype.contains = function(node) {
 
 // Removes a node from the graph.
 Graph.prototype.removeNode = function(node) {
+  if (this.storage[node]) {
+    for (var key in this.storage[node]) {
+      if (this.storage[node][key] === true) {
+        delete this.storage[key][node];
+      }
+    }
+  }
   delete this.storage[node];
 };
 
@@ -43,14 +50,20 @@ Graph.prototype.addEdge = function(fromNode, toNode) {
 
 // Remove an edge between any two specified (by value) nodes.
 Graph.prototype.removeEdge = function(fromNode, toNode) {
+
+  if (this.storage[fromNode] === undefined) {
+    this.storage[fromNode][toNode] = false;
+  }
+  this.storage[fromNode][toNode] = false;
+  this.storage[toNode][fromNode] = false;
+  console.log(this.storage);
 };
 
 // Pass in a callback which will be executed on each node of the graph.
 Graph.prototype.forEachNode = function(cb) {
-  var values = Object.values(this.storage);
-  return _.map(values, function(element) {
-    return cb
-  })
+  for (var key in this.storage) {
+      cb(this.storage[key][key]);
+  }
 };
 
 /*
