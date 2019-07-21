@@ -56,7 +56,6 @@ Graph.prototype.removeEdge = function(fromNode, toNode) {
   }
   this.storage[fromNode][toNode] = false;
   this.storage[toNode][fromNode] = false;
-  console.log(this.storage);
 };
 
 // Pass in a callback which will be executed on each node of the graph.
