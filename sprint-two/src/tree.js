@@ -17,27 +17,16 @@ treeMethods.addChild = function(value) {
 };
 
 treeMethods.contains = function(target) {
-  // var findTarget = function(newTree) {
-  // var matches = true;
-  // if (target === newTree.value) {
-  //   return true;
-  // } else if (newTree.children.length) {
-  //   for (var i = 0; i < newTree.children.length; i++) {
-  //     findTarget(newTree.children[i]);
-  //   }
-  // }
-  // }
-  // var findTarget = function(treeObj) {
+  var isFound = false;
   if (target === this.value) {
-    return true;
+    isFound = true;
   }
   for (var i = 0; i < this.children.length; i++) {
     if (this.children[i].contains(target)) {
-      return true;
+      isFound = true;
     }
-    return false;
   }
-
+  return isFound;
 };
 
 
