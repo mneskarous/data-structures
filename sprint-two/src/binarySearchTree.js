@@ -1,6 +1,5 @@
 var BinarySearchTree = function(value) {
   var newBinarySearchTree = Object.create(binarySearchTreeMethods);
-  // max 2 child nodes per node
 
   newBinarySearchTree.value = value;
   newBinarySearchTree.left = null;
@@ -73,4 +72,7 @@ var binarySearchTreeMethods = {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+    insert: logarithmic
+    contains: logarithmic
+    depthFirstLog: linear
  */
