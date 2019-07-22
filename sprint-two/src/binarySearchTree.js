@@ -26,7 +26,7 @@ var binarySearchTreeMethods = {
         helper(obj.right)
       }
       }
-    }
+    };
     helper(this);
   },
 
@@ -51,30 +51,20 @@ var binarySearchTreeMethods = {
     } else {
       return false;
     }
-    // var helper = function(obj) {
-    //   if (target === obj.value) {
-    //     return true;
-    //   } else if (target < obj.value) {
-    //     if (helper(obj.left)) {
-    //       return true;
-    //     }
-    //   } else {
-    //     if (helper(obj.right)) {
-    //       return true;
-    //     }
-    //   }
-    //   return false;
-    // }
-
-
-    // if target is equal to value
-      // return true
-    // else if target is less than value
-      //
   },
 
   depthFirstLog: function(callback) {
+    var helper = function(obj) {
+      callback(obj.value);
 
+      if (obj.left !== null) {
+        helper(obj.left)
+      }
+      if (obj.right !== null) {
+        helper(obj.right);
+      }
+    };
+    helper(this);
   }
 
 }
