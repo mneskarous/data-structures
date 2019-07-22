@@ -23,7 +23,7 @@ var binarySearchTreeMethods = {
         if (obj.right === null) {
           obj.right = node;
       } else {
-        helper(obj.right)
+        helper(obj.right);
       }
       }
     };
@@ -58,7 +58,7 @@ var binarySearchTreeMethods = {
       callback(obj.value);
 
       if (obj.left !== null) {
-        helper(obj.left)
+        helper(obj.left);
       }
       if (obj.right !== null) {
         helper(obj.right);
