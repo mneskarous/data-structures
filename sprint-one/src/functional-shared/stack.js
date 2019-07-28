@@ -1,19 +1,12 @@
 var Stack = function() {
   var someInstance = {};
-  someInstance.storage = {};
-
-  someInstance.length = 0;
-
   _.extend(someInstance, stackMethods);
 
-  return someInstance;
-}
+  someInstance.storage = {};
+  someInstance.length = 0;
 
-// var extend = function(obj, methods) {
-//   for (var key in methods) {
-//     obj[key] = methods[key];
-//   }
-// }
+  return someInstance;
+};
 
 var stackMethods = {
   push: function(value) {
@@ -22,16 +15,13 @@ var stackMethods = {
   },
 
   pop: function() {
-    var popped = this.storage[this.length - 1];
-    delete this.storage[this.length - 1];
-    this.length--;
+    this.length && this.length--;
+    var popped = this.storage[this.length];
+    delete this.storage[this.length];
     return popped;
   },
 
   size: function() {
-    if (this.length < 0) {
-      return 0;
-    }
     return this.length;
   }
 }

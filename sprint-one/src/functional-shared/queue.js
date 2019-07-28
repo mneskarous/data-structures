@@ -1,37 +1,32 @@
 var Queue = function() {
   var someInstance = {};
-
-  someInstance.storage = {};
-  someInstance.count1 = 0;
-  someInstance.count2 = 0;
-  someInstance.length = 0;
-
   _.extend(someInstance, queueMethods);
 
+  someInstance.storage = {};
+  someInstance.start = 0;
+  someInstance.end = 0;
+
   return someInstance;
+  };
+
+var queueMethods = {};
+
+
+queueMethods.enqueue = function(value) {
+  this.storage[this.end] = value;
+  this.end++;
 };
 
-var queueMethods = {
-  enqueue: function(value) {
-    this.count1++;
-    this.storage[this.count1] = value;
-    this.length++;
-  },
+queueMethods.dequeue = function() {
+  // This does some unnecessary work sometimes. Can you spot why?
+  var dequeued = this.storage[this.start];
+  delete this.storage[this.start];
 
-  dequeue: function() {
-    this.count2++;
-    var dequeued = this.storage[this.count2];
-    delete this.storage[this.count2];
-    this.length--;
-    return dequeued;
-  },
+  this.size() && this.start++;
 
-size: function() {
-  if (this.length < 0) {
-    return 0;
-  }
-  return this.length;
-  }
+  return dequeued;
 };
 
-
+queueMethods.size = function() {
+  return this.end - this.start;
+};
