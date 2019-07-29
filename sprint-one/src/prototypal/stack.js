@@ -7,25 +7,22 @@ var Stack = function() {
   return someInstance;
 };
 
-var stackMethods = {
-  push: function(value) {
-    this.storage[this.length] = value;
-    this.length++;
-  },
+var stackMethods = {};
 
-  pop: function() {
-    var popped = this.storage[this.length - 1];
-    delete this.storage[this.length - 1];
-    this.length--;
-    return popped;
-  },
-
-  size: function() {
-    if (this.length < 0) {
-      return 0;
-    }
-    return this.length;
-  }
+stackMethods.push = function(value) {
+  this.storage[this.length] = value;
+  this.length++;
 };
 
+stackMethods.pop = function() {
+  this.length && this.length--;
+  var popped  = this.storage[this.length];
 
+  delete this.storage[this.length];
+
+  return popped;
+};
+
+stackMethods.size = function() {
+  return this.length;
+};
