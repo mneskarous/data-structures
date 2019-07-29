@@ -7,19 +7,17 @@ var Set = function() {
 var setPrototype = {};
 
 setPrototype.add = function(item) {
-  this._storage[item] = item;
+  // set the set's value at the item key to true
+  this._storage[item] = true;
 };
 
 setPrototype.contains = function(item) {
-  for (var value in this._storage) {
-    if (item === value) {
-      return true;
-    }
-  }
-  return false;
+  // return the boolean value of the set's value at the item key
+  return !!this._storage[item];
 };
 
 setPrototype.remove = function(item) {
+  // delete the value of the set at the item key
   delete this._storage[item];
 };
 
