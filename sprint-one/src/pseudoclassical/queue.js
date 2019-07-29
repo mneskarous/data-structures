@@ -1,29 +1,23 @@
 var Queue = function() {
 
   this.storage = {};
-  this.count1 = 0;
-  this.count2 = 0;
-  this.length = 0;
+  this.start = 0;
+  this.end = 0;
 
 };
 
 Queue.prototype.enqueue = function(value) {
-  this.count1++;
-  this.storage[this.count1] = value;
-  this.length++;
+  this.storage[this.end] = value;
+  this.end++;
 }
 
 Queue.prototype.dequeue = function() {
-  this.count2++;
-  var dequeued = this.storage[this.count2];
-  delete this.storage[this.count2];
-  this.length--;
+  var dequeued = this.storage[this.start];
+  delete this.storage[this.start];
+  this.size() && this.start++;
   return dequeued;
 }
 
 Queue.prototype.size = function(){
-  if (this.length < 0) {
-    return 0;
-  }
-  return this.length;
+  return this.end - this.start;
 }

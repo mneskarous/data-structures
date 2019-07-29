@@ -17,9 +17,7 @@ stackMethods.push = function(value) {
 stackMethods.pop = function() {
   this.length && this.length--;
   var popped  = this.storage[this.length];
-
   delete this.storage[this.length];
-
   return popped;
 };
 
